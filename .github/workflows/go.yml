@@ -20,7 +20,7 @@ jobs:
       run: |
         go get github.com/gorilla/mux
         go get github.com/jinzhu/gorm
-        return 0
+        exit 0
     - name: Build
       run: go package
   test:
