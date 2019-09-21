@@ -24,10 +24,10 @@ jobs:
             dep ensure
         fi
     - name: Get custom dependencies
-      run: go get github.com/revel/revel && go get github.com/revel/cmd/revel && go get -u github.com/jinzhu/gorm
+      run: go get github.com/gorilla/mux && go get -u github.com/jinzhu/gorm
 
     - name: Build
-      run: revel package FoundeeAPI
+      run: go package
   test:
     name: test
     runs-on: ubuntu-latest
@@ -50,9 +50,9 @@ jobs:
             dep ensure
         fi
     - name: Get custom dependencies
-      run: go get github.com/revel/revel && go get github.com/revel/cmd/revel && go get -u github.com/jinzhu/gorm
+      run: go get github.com/gorilla/mux && go get -u github.com/jinzhu/gorm
 
-    - name: Build
-      run: revel test FoundeeAPI dev
+    - name: Test
+      run: go test
       
       
