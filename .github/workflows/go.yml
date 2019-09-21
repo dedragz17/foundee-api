@@ -23,7 +23,11 @@ jobs:
         go get github.com/jinzhu/gorm
         exit 0
     - name: Build
-      run: go build FoundeeAPI
+      run: |
+        cd $GITHUB_WORKSPACE
+        mkdir FoundeeAPI
+        mv foundee-api/* FoundeeAPI/
+        go build FoundeeAPI
   test:
     name: test
     runs-on: ubuntu-latest
