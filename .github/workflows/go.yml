@@ -24,8 +24,10 @@ jobs:
             dep ensure
         fi
     - name: Get custom dependencies
-      run: go get github.com/gorilla/mux && go get -u github.com/jinzhu/gorm && return 0
-
+      run: |
+        go get github.com/gorilla/mux
+        go get github.com/jinzhu/gorm
+        return 0
     - name: Build
       run: go package
   test:
