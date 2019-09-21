@@ -7,7 +7,6 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	"github.com/revel/revel"
-	"log"
 	_ "log"
 	_ "os"
 )
@@ -51,8 +50,7 @@ var DBMap *gorm.DB
 func InitDB() {
 	// connect to db using standard Go database/sql API
 	// use whatever database/sql driver you wish
-	log.Print("ASDASDASDJAHSDJKAHSDKJASHDKJASHDKJASHDKJASHDKAJSDHAKSJDHAKSJDHAKSJDHAKSJDHAKSJDHAKSJDHAKJSDHKASJDHKASJDHAKSJDHAKSJDHAJKHHHHHHHHHDDHHDDDDDHHDDHHASDJKAASDASDAAADASDASDASDASDASDJKASDASDASDSADASD")
-	db, err := gorm.Open("mysql", "root:root@/aimforume")
+	db, err := gorm.Open("mysql", "username:password@host/db")
 	if err != nil {
 		panic("failed to connect database")
 	}
