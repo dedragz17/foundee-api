@@ -22,7 +22,7 @@ jobs:
         go get github.com/jinzhu/gorm
         exit 0
     - name: Build
-      run: go package
+      run: go build FoundeeAPI
   test:
     name: test
     runs-on: ubuntu-latest
