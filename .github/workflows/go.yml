@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Set environment variables
-      run: export GITHUB_WORKSPACE="/home/worker/go/src/"
+      run: export GITHUB_WORKSPACE="/home/runner/go/src/"
     - name: Set up Go 1.12
       uses: actions/setup-go@v1
       with:
