@@ -1,10 +1,15 @@
 package app
 
 import (
-	revel_gorp "FoundeeAPI/app/views"
-	//models2 "FoundeeAPI/models"
+	"FoundeeAPI/models"
+	_ "database/sql"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	"github.com/revel/revel"
-	//"gopkg.in/gorp.v1"
+	"log"
+	_ "log"
+	_ "os"
 )
 
 var (
@@ -41,32 +46,29 @@ func init() {
 	// revel.OnAppStart(FillCache)
 }
 
-//var DBMap *gorp.DbMap
+var DBMap *gorm.DB
+
 func InitDB() {
-
-	DBMap, _, err := revel_gorp.InitDatabase()
+	// connect to db using standard Go database/sql API
+	// use whatever database/sql driver you wish
+	log.Print("ASDASDASDJAHSDJKAHSDKJASHDKJASHDKJASHDKJASHDKAJSDHAKSJDHAKSJDHAKSJDHAKSJDHAKSJDHAKSJDHAKJSDHKASJDHKASJDHAKSJDHAKSJDHAJKHHHHHHHHHDDHHDDDDDHHDDHHASDJKAASDASDAAADASDASDASDASDASDJKASDASDASDSADASD")
+	db, err := gorm.Open("mysql", "root:root@/aimforume")
 	if err != nil {
-		revel.RevelLog.Error("LoadDatabase error: %s", err.Error())
+		panic("failed to connect database")
 	}
+	defer db.Close()
 
-	// add models
-	revel.RevelLog.Info("Loading database...")
+	// Migrate the schema
+	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Answer{})
+	db.AutoMigrate(&models.Ban{})
+	db.AutoMigrate(&models.Category{})
+	db.AutoMigrate(&models.Comment{})
+	db.AutoMigrate(&models.Note{})
+	db.AutoMigrate(&models.Question{})
+	db.AutoMigrate(&models.Vote{})
 
-	/*DBMap.AddTableWithName(models2.User{}, "users").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Answer{}, "answers").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Ban{}, "bans").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Category{}, "categories").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Comment{}, "comments").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Note{}, "notes").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Question{}, "questions").SetKeys(true, "Id")
-	DBMap.AddTableWithName(models2.Vote{}, "votes").SetKeys(true, "Id")
-	*/
-
-	// create tables if not exists
-	err = DBMap.CreateTablesIfNotExists()
-	if err != nil {
-		revel.RevelLog.Error("Create tables error: %s", err.Error())
-	}
+	DBMap = db
 }
 
 // HeaderFilter adds common security headers
