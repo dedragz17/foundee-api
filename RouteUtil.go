@@ -1,7 +1,7 @@
 package FoundeeAPI
 
 import (
-	"FoundeeAPI/controller"
+	"github.com/foundee-org/foundee-api/controller"
 	"github.com/gorilla/mux"
 	"log"
 )
