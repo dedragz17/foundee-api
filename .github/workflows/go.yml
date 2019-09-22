@@ -26,7 +26,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         mkdir FoundeeAPI
-        mv foundee-api/* FoundeeAPI/
+        mv foundee-api/ FoundeeAPI/
         go build FoundeeAPI
   test:
     name: test
