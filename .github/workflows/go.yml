@@ -26,7 +26,8 @@ jobs:
       run: |
         cd ../
         mkdir /home/runner/go/src/FoundeeAPI
-        mv foundee-api/FoundeeAPI/ /home/runner/go/src/FoundeeAPI
+        ls foundee-api/
+        mv foundee-api/ /home/runner/go/src/FoundeeAPI
         cd /home/runner/go/src
         ls
         go build FoundeeAPI
