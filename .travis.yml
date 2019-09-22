@@ -10,4 +10,4 @@ before_install:
   - go get github.com/jinzhu/gorm
 
 script:
-  - go test -cpu=1,2 -v -tags integration ./...
+  - go test FoundeeAPI
