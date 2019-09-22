@@ -42,3 +42,7 @@ func InitDB() {
 
 	DBMap = db
 }
+
+func GetDB() *gorm.DB {
+	return DBMap
+}

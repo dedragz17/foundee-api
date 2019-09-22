@@ -2,6 +2,7 @@ package FoundeeAPI
 
 import (
 	"github.com/foundee-org/foundee-api/controller"
+	"github.com/foundee-org/foundee-api/controller/questions"
 	"github.com/gorilla/mux"
 	"log"
 )
@@ -16,4 +17,5 @@ func RouteUtil(router *mux.Router) {
 
 	//routes
 	router.HandleFunc("/", controller.IndexController)
+	router.HandleFunc("/questions/list", questions.QuestionsListController).Methods("GET")
 }
