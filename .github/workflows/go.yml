@@ -28,6 +28,7 @@ jobs:
         mkdir /home/runner/go/src/github.com/foundee-org/foundee-api
         cd ../
         mv foundee-api/* /home/runner/go/src/github.com/foundee-org/foundee-api/
+        cd /home/runner/go/src/github.com/foundee-org/foundee-api/
         go build
   test:
     name: Test
