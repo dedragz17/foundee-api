@@ -23,7 +23,13 @@ jobs:
         go get github.com/jinzhu/gorm
         exit 0
     - name: Build
-      run: go build
+      run: |
+        mkdir /home/runner/go/src/github.com
+        mkdir /home/runner/go/src/github.com/foundee-org
+        mkdir /home/runner/go/src/github.com/foundee-org/foundee-api
+        cd ../
+        mv foundee-api/* /home/runner/go/src/github.com/foundee-org/foundee-api/
+        go build
   test:
     name: Test
     runs-on: ubuntu-latest
