@@ -9,5 +9,5 @@ before_install:
   - go get github.com/gorilla/mux
   - go get github.com/jinzhu/gorm
 
-script:
+install:
   - go test FoundeeAPI
