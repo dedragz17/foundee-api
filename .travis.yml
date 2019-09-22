@@ -1,16 +1,25 @@
+dist: xenial
+
 language: go
 
+env:
+  - GO111MODULE=on
+  - GOFLAGS='-mod vendor'
+
 go:
-  - 1.10.x
-  - 1.11.x
   - 1.12.x
 
-before_install:
+git:
+  depth: 1
+
+install: true
+
+notifications:
+  email: false
+
+before_script:
   - go get github.com/gorilla/mux
   - go get github.com/jinzhu/gorm
 
-install:
-  - cd ../
-  - mkdir /home/travis/gopath/src/FoundeeAPI
-  - mv foundee-api/* /home/travis/gopath/src/FoundeeAPI/
-  - go test FoundeeAPI
+script:
+  - go test
