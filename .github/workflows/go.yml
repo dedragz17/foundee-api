@@ -30,7 +30,7 @@ jobs:
         mv foundee-api/* /home/runner/go/src/github.com/foundee-org/foundee-api/
         cd /home/runner/go/src/github.com/foundee-org/foundee-api/
         go build
-  test:
+  Test:
     name: Test
     runs-on: ubuntu-latest
     steps:
@@ -52,10 +52,11 @@ jobs:
         exit 0
     - name: Test
       run: |
+        mkdir /home/runner/go/src/github.com/foundee-org
+        mkdir /home/runner/go/src/github.com/foundee-org/foundee-api
         cd ../
-        mkdir /home/runner/go/src/FoundeeAPI
-        mv foundee-api/* /home/runner/go/src/FoundeeAPI
-        ls /home/runner/go/src/FoundeeAPI
-        go test FoundeeAPI
+        mv foundee-api/* /home/runner/go/src/github.com/foundee-org/foundee-api/
+        cd /home/runner/go/src/github.com/foundee-org/foundee-api/
+        go test
       
       
