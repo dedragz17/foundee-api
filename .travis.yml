@@ -29,4 +29,5 @@ script:
   - cd ../
   - ls
   - mv FoundeeAPI/* /home/travis/gopath/src/FoundeeAPI/
+  - ls /home/travis/gopath/src/FoundeeAPI/
   - go test FoundeeAPI
