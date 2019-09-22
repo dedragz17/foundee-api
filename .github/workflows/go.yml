@@ -24,7 +24,6 @@ jobs:
         exit 0
     - name: Build
       run: |
-        mkdir /home/runner/go/src/github.com
         mkdir /home/runner/go/src/github.com/foundee-org
         mkdir /home/runner/go/src/github.com/foundee-org/foundee-api
         cd ../
