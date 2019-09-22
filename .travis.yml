@@ -31,4 +31,4 @@ script:
   - mv FoundeeAPI/* /home/travis/gopath/src/FoundeeAPI/
   - ls /home/travis/gopath/src/FoundeeAPI/
   - cd /home/travis/gopath/src/FoundeeAPI
-  - go test
+  - go build
