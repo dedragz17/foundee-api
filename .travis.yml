@@ -22,6 +22,5 @@ before_script:
   - go get github.com/jinzhu/gorm
 
 script:
-  - cd ../ && mkdir /home/travis/gopath/src/FoundeeAPI && ls
-  - cd ../ && mkdir FoundeeAPI && cd FoundeeAPI
+  - cd ../ && mkdir /home/travis/gopath/src/FoundeeAPI && mv foundee-api/* /home/travis/gopath/src/FoundeeAPI/
   - go build
