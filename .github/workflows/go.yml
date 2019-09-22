@@ -24,12 +24,11 @@ jobs:
         exit 0
     - name: Build
       run: |
-        cd $GITHUB_WORKSPACE
         cd ../
-        mkdir FoundeeAPI
+        mkdir /home/runner/go/src/FoundeeAPI
+        mv foundee-api/ /home/runner/go/src/FoundeeAPI
+        cd /home/runner/go/src
         ls
-        pwd
-        mv foundee-api/ FoundeeAPI/
         go build FoundeeAPI
   test:
     name: test
