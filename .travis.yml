@@ -22,4 +22,7 @@ before_script:
   - go get github.com/jinzhu/gorm
 
 script:
-  - go test
+  - git clone https://github.com/$TRAVIS_REPO_SLUG.git FoundeeAPI
+  - cd FoundeeAPI
+  - git checkout -qf $TRAVIS_COMMIT
+  - go test FoundeeAPI
