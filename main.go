@@ -1,7 +1,7 @@
 package FoundeeAPI
 
 import (
-	"FoundeeAPI/models"
+	"github.com/foundee-org/foundee-api/models"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 	"log"
