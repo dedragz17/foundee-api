@@ -2,6 +2,9 @@ dist: xenial
 
 language: go
 
+env:
+  - CODECOV_TOKEN="00eac19a-ee0c-4f4a-b822-aeced2a02d04"
+
 go:
   - 1.12.x
 
