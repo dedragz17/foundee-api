@@ -28,6 +28,7 @@ script:
   - mkdir /home/travis/gopath/src/FoundeeAPI
   - cd ../
   - ls
-  - cp FoundeeAPI/* /home/travis/gopath/src/FoundeeAPI/
+  - mv FoundeeAPI/* /home/travis/gopath/src/FoundeeAPI/
   - ls /home/travis/gopath/src/FoundeeAPI/
-  - go test FoundeeAPI
+  - cd /home/travis/gopath/src/FoundeeAPI
+  - go test
