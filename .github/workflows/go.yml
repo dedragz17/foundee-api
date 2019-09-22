@@ -24,8 +24,10 @@ jobs:
         exit 0
     - name: Build
       run: |
+        ls
         cd $GITHUB_WORKSPACE
         mkdir FoundeeAPI
+        ls
         mv foundee-api/ FoundeeAPI/
         go build FoundeeAPI
   test:
